@@ -1,7 +1,7 @@
 
 var cards = [
 	{
-		cardName: "Queen",
+		cardRank: "Queen",
 		cardSuit: "Diamonds",
 		cardImage: "images/queen-of-diamonds.png",
 	},
@@ -22,16 +22,6 @@ var cards = [
 	}
 ];
 
-function createBoard(){
-	for (i = 0; i < cards.length; i++){
-		var cardElement = document.createElement("img");
-		cardElement.setAttribute("src", "images/back.png");
-		cardElement.setAttribute("data-id", i);
-		cardElement.addEventListener("click", flipCard);
-		document.getElementById("game-board").appendChild(cardElement);
-	}
-}
-
 var cardsInPlay = [];
 
 function checkForMatch(){
@@ -45,16 +35,19 @@ if (cardsInPlay[0] === cardsInPlay[1]){
 
 }
 
-function flipCard(){
-	var cardId = this.getAttribute("data-id");
+function flipCard(cardId){
+
+	console.log("User flipped " + cards[cardId].cardName);
 	cardsInPlay.push(cards[cardId].cardName);
-	this.setAttribute("src", cards[cardId].cardImage);
 	if (cardsInPlay.length === 2) {
 		checkForMatch();
 	}	
 }
 
-createBoard();
+flipCard(2);
+flipCard(3);
+
+
 
 
 
