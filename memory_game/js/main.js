@@ -47,11 +47,8 @@ if (cardsInPlay[0] === cardsInPlay[1]){
 
 function flipCard(){
 	var cardId = this.getAttribute("data-id");
-
-	if (cardsInPlay.length < 2) {
 	cardsInPlay.push(cards[cardId].cardName);
 	this.setAttribute("src", cards[cardId].cardImage);
-	}
 	if (cardsInPlay.length === 2) {
 	checkForMatch();
 	}	
